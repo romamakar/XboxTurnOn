@@ -1,0 +1,8 @@
+﻿<Application
+    x:Class="XboxTurnOn.UWP.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:XboxTurnOn.UWP"
+    RequestedTheme="Light">
+
+</Application>

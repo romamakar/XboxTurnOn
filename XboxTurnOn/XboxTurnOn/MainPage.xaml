@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XboxTurnOn"
+             x:Class="XboxTurnOn.MainPage">
+
+    <StackLayout>
+        <StackLayout HeightRequest="100">
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label x:Name="labelIp" FontSize="20" Text="IP/Hostname:"
+          HorizontalOptions="Start" HorizontalTextAlignment="Center" VerticalOptions="Center" WidthRequest="150"/>
+            <Editor x:Name="editIp" FontSize="20"  HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label x:Name="labelLive" HorizontalOptions="Start" HorizontalTextAlignment="Center" VerticalOptions="Center" WidthRequest="150" FontSize="20">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Xbox Live Id:" FontSize="20"  />
+                        <Span Text="(?)"  FontSize="20" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Editor x:Name="editLive"  FontSize="20"  HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+        <Button Text="Turn on" Clicked="Button_Clicked" WidthRequest="150"/>
+    </StackLayout>
+
+
+</ContentPage>
