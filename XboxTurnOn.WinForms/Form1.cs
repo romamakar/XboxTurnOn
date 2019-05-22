@@ -38,7 +38,7 @@ namespace XboxTurnOn.WinForms
                 textBox1.Text = set.IP;
                 textBox2.Text = set.XboxLiveId;
             }
-            catch () { }
+            catch (Exception) { }
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -77,7 +77,7 @@ namespace XboxTurnOn.WinForms
 
                 File.WriteAllText("set.json", content);
             }
-            catch () { }
+            catch (Exception) { }
         }
     }
 }
