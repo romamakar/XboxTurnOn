@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 using System.Windows.Forms;
 
 namespace XboxTurnOn.WinForms
@@ -29,6 +31,14 @@ namespace XboxTurnOn.WinForms
             toolTip2.ShowAlways = true;
 
             toolTip2.SetToolTip(label2, "You can find in Settings->All Settings->Console Info & Updates->Console ID");
+            try
+            {
+                var content = File.ReadAllText("set.json");
+                var set = new JavaScriptSerializer().Deserialize<Set>(content);
+                textBox1.Text = set.IP;
+                textBox2.Text = set.XboxLiveId;
+            }
+            catch () { }
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -52,6 +62,22 @@ namespace XboxTurnOn.WinForms
             {
                 MessageBox.Show(ex.Message, "IP", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                var set = new Set()
+                {
+                    IP = textBox1.Text,
+                    XboxLiveId = textBox2.Text
+                };
+                var content = new JavaScriptSerializer().Serialize(set);
+
+                File.WriteAllText("set.json", content);
+            }
+            catch () { }
         }
     }
 }
