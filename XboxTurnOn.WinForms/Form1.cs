@@ -41,7 +41,7 @@ namespace XboxTurnOn.WinForms
             catch (Exception) { }
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private async void Button1_Click(object sender, EventArgs e)
         {
             string host = "";
             try
@@ -56,7 +56,7 @@ namespace XboxTurnOn.WinForms
 
             try
             {
-                Switcher.StartClient(IPAddress.Parse(host), textBox2.Text);
+               await Task.Run(()=> Switcher.StartClient(IPAddress.Parse(host), textBox2.Text));
             }
             catch (Exception ex)
             {
