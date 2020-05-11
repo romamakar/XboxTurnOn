@@ -56,7 +56,7 @@ namespace XboxTurnOn.WinForms
 
             try
             {
-               await Task.Run(()=> Switcher.StartClient(IPAddress.Parse(host), textBox2.Text));
+               Task.Run(()=> Switcher.StartClient(IPAddress.Parse(host), textBox2.Text));
             }
             catch (Exception ex)
             {
